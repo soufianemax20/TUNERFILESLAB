@@ -1,0 +1,1065 @@
+/*
+Theme Name: Tuning Mania
+Theme URI: https://tunerfileslab.com
+Author: Anti-Gravity Agent
+Author URI: https://tunerfileslab.com
+Description: A high-performance, 3D/Neon WordPress theme for Chiptuning businesses. Optimized for ChiptuningReseller V6.
+Version: 1.0.7
+Text Domain: tuning-mania
+*/
+
+/* ==========================================================================
+   #GLOBAL VARIABLES & RESET
+   ========================================================================== */
+:root {
+    --color-neon-yellow: #D7F207;
+    --color-neon-green: #F2EA79;
+    --color-neon-blue: #F2EDA2;
+    --color-dark-base: #0D0D0D;
+    --color-dark-surface: #141414;
+    --color-dark-card: #1a1a1a;
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Orbitron', sans-serif;
+    --glass-border: rgba(242, 242, 242, 0.1);
+    --glass-surface: rgba(13, 13, 13, 0.8);
+    --neon-glow-yellow: 0 0 10px rgba(215, 242, 7, 0.5), 0 0 20px rgba(215, 242, 7, 0.3);
+    --neon-glow-blue: 0 0 10px rgba(242, 237, 162, 0.5), 0 0 20px rgba(242, 237, 162, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-dark-base);
+    color: #e2e8f0;
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Global Focus Style for Accessibility */
+:focus-visible {
+    outline: 3px solid var(--color-neon-yellow);
+    outline-offset: 2px;
+    box-shadow: 0 0 15px var(--color-neon-yellow);
+    z-index: 100;
+}
+
+/* ==========================================================================
+   #TYPOGRAPHY & GLOWS
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+h1 span,
+h2 span {
+    color: var(--color-neon-yellow) !important;
+    text-shadow: var(--neon-glow-yellow);
+}
+
+/* ==========================================================================
+   #PLUGIN WRAPPER STYLES
+   ========================================================================== */
+.ctr-brands-wrapper,
+.ctr-models-wrapper,
+.ctr-engines-wrapper,
+.ctr-stages-wrapper {
+    padding: 2rem 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   #UTILITIES
+   ========================================================================== */
+.text-neon-yellow {
+    color: var(--color-neon-yellow);
+}
+
+.bg-neon-yellow {
+    background-color: var(--color-neon-yellow);
+}
+
+.text-neon-green {
+    color: var(--color-neon-green);
+}
+
+.bg-neon-green {
+    background-color: var(--color-neon-green);
+}
+
+.text-neon-blue {
+    color: var(--color-neon-blue);
+}
+
+.bg-neon-blue {
+    background-color: var(--color-neon-blue);
+}
+
+/* Z-Index Fixes */
+.site-header {
+    z-index: 50;
+}
+
+.ctr-selector-wrapper {
+    position: relative;
+    z-index: 50 !important;
+}
+
+.select2-container {
+    z-index: 9999 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-dark-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon-yellow);
+}
+
+/* ==========================================================================
+   #CYBERPUNK GRID BG
+   ========================================================================== */
+.bg-cyber-grid {
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Animation for Neon Pulse */
+@keyframes neon-pulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        filter: blur(10px);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: blur(15px);
+    }
+}
+
+/* ==========================================================================
+   #PLUGIN SPECIFIC CLASSES
+   ========================================================================== */
+
+/* Vehicle Selector */
+.selectVehicleTitle {
+    font-size: 1.875rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.dropdownPreText {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.powered-by-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Image Blocks */
+.image-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--color-dark-surface);
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.brand-image,
+.serie-image {
+    max-width: 150px;
+    height: auto;
+    filter: grayscale(0.3) brightness(0.9);
+    transition: all 0.3s ease;
+}
+
+.brand-image:hover,
+.serie-image:hover {
+    filter: grayscale(0) brightness(1);
+    transform: scale(1.05);
+}
+
+/* Vehicle Details */
+.vehicle-details-block {
+    background: var(--color-dark-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.vehicle-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-neon-yellow);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.vehicle-detail-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.vehicle-detail-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vehicle-detail-table td {
+    padding: 0.75rem 0;
+    font-size: 0.875rem;
+}
+
+.vehicle-detail-table td:first-child {
+    color: #9ca3af;
+    font-weight: 600;
+}
+
+.vehicle-detail-table td:last-child {
+    color: #fff;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Stage Data */
+.stage-data-block {
+    background: linear-gradient(135deg, var(--color-dark-surface) 0%, var(--color-dark-card) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.stage-data-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-neon-yellow), var(--color-neon-green));
+}
+
+/* Tuning Gains */
+.stage-tuning-gains-hp,
+.stage-tuning-gains-nm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    font-weight: 900;
+    font-size: 1.25rem;
+    font-family: var(--font-display);
+}
+
+.stage-tuning-gains-hp {
+    color: var(--color-neon-yellow);
+    border: 1px solid rgba(215, 242, 7, 0.2);
+    box-shadow: 0 0 20px rgba(215, 242, 7, 0.1);
+}
+
+.stage-tuning-gains-nm {
+    color: var(--color-neon-green);
+    border: 1px solid rgba(242, 234, 121, 0.2);
+    box-shadow: 0 0 20px rgba(242, 234, 121, 0.1);
+}
+
+/* Pie Charts */
+.stage-pie-chart-hp,
+.stage-pie-chart-nm {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+}
+
+.stage-pie-chart-hp canvas,
+.stage-pie-chart-nm canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Price Block */
+.price-block {
+    background: linear-gradient(135deg, var(--color-neon-yellow) 0%, var(--color-neon-green) 100%);
+    padding: 2px;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+.price-block>div {
+    background: var(--color-dark-base);
+    border-radius: calc(1rem - 2px);
+    padding: 2rem;
+    text-align: center;
+}
+
+.price-block .price-label {
+    font-size: 0.875rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.price-block .price-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: var(--font-display);
+    color: var(--color-neon-yellow);
+    font-style: italic;
+}
+
+.price-block .price-currency {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 0.5rem;
+}
+
+/* ==========================================================================
+   #WOOCOMMERCE OVERRIDES (DARK MODE / NEON)
+   ========================================================================== */
+
+/* Main Wrapper */
+.tuning-mania-woo-wrapper {
+    font-family: var(--font-primary);
+}
+
+/* Product Loop / Grid */
+.woocommerce ul.products li.product {
+    background: var(--color-dark-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.woocommerce ul.products li.product:hover {
+    border-color: var(--color-neon-yellow);
+    box-shadow: 0 0 20px rgba(215, 242, 7, 0.1);
+    transform: translateY(-5px);
+}
+
+/* Product Images */
+.woocommerce ul.products li.product a img {
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    filter: brightness(0.9);
+    transition: all 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover a img {
+    filter: brightness(1.1);
+}
+
+/* Product Title */
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Price */
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price {
+    color: var(--color-neon-yellow) !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+}
+
+.woocommerce ul.products li.product .price del {
+    color: #6b7280;
+    opacity: 0.6;
+}
+
+/* Add to Cart Button */
+.woocommerce ul.products li.product .button,
+.woocommerce button.button.alt,
+.woocommerce a.button.alt {
+    background-color: transparent !important;
+    color: var(--color-neon-yellow) !important;
+    border: 1px solid var(--color-neon-yellow) !important;
+    border-radius: 0.25rem !important;
+    font-family: var(--font-display) !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.3s ease !important;
+    margin-top: 1rem !important;
+    display: inline-block;
+}
+
+.woocommerce ul.products li.product .button:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce a.button.alt:hover {
+    background-color: var(--color-neon-yellow) !important;
+    color: #000 !important;
+    box-shadow: 0 0 15px var(--color-neon-yellow);
+}
+
+/* Single Product Page */
+.woocommerce div.product .product_title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.woocommerce div.product .woocommerce-product-details__short-description {
+    color: #9ca3af;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Tabs */
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+    padding: 0;
+    margin: 0 0 2rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active {
+    border-bottom-color: var(--color-neon-yellow);
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+    color: #9ca3af;
+    font-family: var(--font-display);
+    font-weight: 700;
+    padding: 1rem 0;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+    color: #fff;
+}
+
+/* Cart & Checkout Tables */
+.woocommerce table.shop_table {
+    border: 1px solid var(--glass-border);
+    border-radius: 0.5rem;
+    background: var(--color-dark-card);
+    color: #fff;
+}
+
+.woocommerce table.shop_table th {
+    background: var(--color-dark-surface);
+    color: #9ca3af;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+
+.woocommerce table.shop_table td {
+    border-top: 1px solid var(--glass-border);
+    padding: 1rem;
+}
+
+/* Inputs */
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea {
+    background-color: var(--color-dark-base);
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+}
+
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row textarea:focus {
+    border-color: var(--color-neon-blue);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-neon-blue);
+}
+
+/* Messages */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+    background-color: var(--color-dark-card);
+    color: #fff;
+    border-top: 3px solid var(--color-neon-green);
+}
+
+.woocommerce-error {
+    border-top-color: #ef4444;
+}
+
+.woocommerce-info {
+    border-top-color: var(--color-neon-blue);
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before {
+    color: inherit !important;
+}
+
+/* ==========================================================================
+   #MOBILE OPTIMIZATIONS (SMARTPHONE FIXES)
+   ========================================================================== */
+@media (max-width: 767px) {
+
+    /* Prevent horizontal scroll */
+    html,
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Safe area for fixed bottom nav */
+    body {
+        padding-bottom: 80px;
+        /* Height of bottom nav + buffer */
+    }
+
+    /* Typography Scaling */
+    h1 {
+        font-size: 2.5rem !important;
+        /* Smaller H1 for mobile */
+        line-height: 1.1 !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    /* Adjust Container Padding */
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Selector Widget Mobile Tweaks */
+    .ctr-selector-wrapper .select2-container {
+        width: 100% !important;
+    }
+
+    /* Hide 3D floating elements that might block clicks */
+    .blur-3xl {
+        opacity: 0.3;
+    }
+
+    /* Stack tables/grids if needed */
+    .vehicle-detail-table td {
+        display: block;
+        width: 100%;
+        text-align: left !important;
+        padding: 2px 0;
+    }
+
+    .vehicle-detail-table tr {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        display: block;
+    }
+}
+
+/* ==========================================================================
+   #FLAT & CLEAN AESTHETIC (MINIMIZED 3D)
+   ========================================================================== */
+
+/* General Resets for Flat Look */
+.ctr-card:hover,
+.ctr-vehicle-card:hover,
+.woocommerce ul.products li.product:hover,
+.ctr-ag-card:hover {
+    transform: translateY(-1px) !important;
+    /* Minimal lift */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    /* Subtle shadow */
+    border-color: var(--color-neon-yellow) !important;
+}
+
+/* Remove deep 3D transforms */
+.card-3d,
+.perspective-1000,
+.perspective-2000 {
+    transform: none !important;
+    perspective: none !important;
+}
+
+/* Base style for specific buttons that use it */
+.btn-neon,
+.ctr-btn,
+.ctr-ag-btn {
+    box-shadow: none !important;
+    border: 1px solid transparent !important;
+    transition: all 0.2s ease !important;
+}
+
+/* General hover for regular buttons */
+.btn-neon:hover,
+.ctr-btn:hover,
+.ctr-ag-btn:hover {
+    background-color: transparent !important;
+    color: inherit !important;
+    /* Retain original text color */
+    border: 2px solid #fff !important;
+    /* Add white border */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) !important;
+    /* Soft glow only */
+    transform: none !important;
+}
+
+/* Lamborghini Start Button Style */
+/* Lamborghini Start Button Style (With Bezel Edge) */
+/* Lamborghini Start Button Style (Fixed Stacking) */
+/* Lamborghini Start Button Style (Turbo Extreme Edition) */
+/* Lamborghini Start Button Replica (Huracan Style) */
+/* ==========================================================================
+   #LAMBORGHINI BUTTON STYLES
+   Styles moved to btn-lambo-new.css for cleaner organization.
+   The button uses a premium skewed glassmorphic design with neon accents.
+   ========================================================================== */
+
+/* Metallic Text Effect */
+.text-metal {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 50%, #b3b3b3 51%, #ffffff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Carbon Fiber Background Pattern */
+.bg-carbon {
+    background-color: #111;
+    background-image:
+        linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+        linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+}
+
+
+
+
+/* Sharper Borders */
+.glass-panel,
+.ctr-selector-wrapper .glass-panel,
+.vehicle-details-block,
+.stage-data-block {
+    backdrop-filter: blur(10px) !important;
+    background: rgba(15, 18, 25, 0.95) !important;
+    /* More solid */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+}
+
+/* Inputs - Flat */
+input,
+select,
+.ctr-select,
+.ctr-input {
+    box-shadow: none !important;
+    background-color: #111 !important;
+    border: 1px solid #333 !important;
+}
+
+input:focus,
+select:focus,
+.ctr-select:focus {
+    border-color: var(--color-neon-yellow) !important;
+    box-shadow: none !important;
+}
+
+/* Remove floating particles/glows if they are too distracting */
+.blur-3xl,
+.ctr-ag-glow-bg {
+    opacity: 0.1 !important;
+    /* Very subtle */
+}
+
+/* Neon Text Shadows - Reduced */
+h1 span,
+h2 span,
+.text-neon-yellow {
+    text-shadow: none !important;
+    /* Clean neon text */
+}
+
+.ctr-vehicle-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobile default: 1 column */
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .ctr-vehicle-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Tablet: 2 columns */
+    }
+}
+
+@media (min-width: 768px) {
+    .ctr-vehicle-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* Desktop: 3 columns */
+    }
+}
+
+@media (min-width: 1024px) {
+    .ctr-vehicle-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* Large Desktop: 4 columns */
+    }
+}
+
+/* Card Styling Fixes (since Tailwind might be missing) */
+.ctr-vehicle-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #0b0f19;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-decoration: none;
+    /* Remove underline from links */
+}
+
+.ctr-vehicle-card:hover {
+    transform: scale(1.05);
+    border-color: rgba(215, 242, 7, 0.5);
+    box-shadow: 0 0 20px rgba(215, 242, 7, 0.2);
+}
+
+.ctr-vehicle-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+    transition: all 0.3s ease;
+}
+
+.ctr-vehicle-card:hover img {
+    filter: drop-shadow(0 0 20px rgba(215, 242, 7, 0.6));
+}
+
+.ctr-vehicle-card h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.ctr-vehicle-card:hover h3 {
+    color: var(--color-neon-yellow);
+}
+
+.ctr-vehicle-card .cta-text {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.ctr-vehicle-card:hover .cta-text {
+    opacity: 1;
+    transform: translateY(0);
+    color: #fff;
+}
+
+/* Additional Styles for Neon/Glassmorphism & Plugin Integration */
+
+/* Glassmorphism effect for forms and selects */
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-selection--multiple,
+.tm-select,
+.tm-input,
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    background-color: var(--glass-surface) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: #e2e8f0 !important;
+    border-radius: 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.select2-container--default .select2-selection--single:focus,
+.select2-container--default .select2-selection--multiple:focus,
+.tm-select:focus,
+.tm-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+    border-color: var(--color-neon-yellow) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(215, 242, 7, 0.2) !important;
+}
+
+/* Select2 dropdown specific styling */
+.select2-container--default .select2-results__option {
+    background-color: var(--color-dark-card) !important;
+    color: #e2e8f0 !important;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: rgba(215, 242, 7, 0.1) !important;
+    color: var(--color-neon-yellow) !important;
+}
+
+.select2-container--default .select2-dropdown {
+    background-color: var(--color-dark-card) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Buttons and interactive elements */
+.btn-lambo span {
+    text-shadow: 0 0 8px rgba(215, 242, 7, 0.7);
+}
+
+.btn-lambo:hover span {
+    text-shadow: 0 0 15px rgba(215, 242, 7, 1), 0 0 30px rgba(215, 242, 7, 0.8);
+}
+
+/* Custom scrollbar for table overflow */
+.custom-scroll {
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: var(--color-neon-yellow) #333;
+    /* Firefox */
+}
+
+.custom-scroll::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--color-neon-yellow);
+    border-radius: 10px;
+    border: 2px solid #333;
+}
+
+/* General Link Styling */
+a {
+    color: var(--color-neon-green);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-neon-yellow);
+}
+
+/* Typography alignment for a cleaner look */
+.prose ul li,
+.prose ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Ensure images in content have some styling */
+.entry-content img,
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Form labels */
+label {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Subtle border for page content boxes */
+.page-content {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjustments for ctr-container elements if they exist */
+.ctr-container {
+    padding: 1rem;
+    background-color: var(--color-dark-card);
+    border-radius: 0.75rem;
+    border: 1px solid var(--glass-border);
+    margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   #TAILWIND OVERRIDES (ENSURE PALETTE CONSISTENCY)
+   ========================================================================== */
+.text-neon-lime,
+.text-\[#ccff00\] {
+    color: var(--color-neon-yellow) !important;
+}
+
+.bg-neon-lime,
+.bg-\[#ccff00\] {
+    background-color: var(--color-neon-yellow) !important;
+}
+
+.border-neon-lime,
+.border-\[#ccff00\] {
+    border-color: var(--color-neon-yellow) !important;
+}
+
+.shadow-neon-lime {
+    box-shadow: 0 0 30px rgba(215, 242, 7, 0.3) !important;
+}
+
+/* Map Old Green to Pale Yellow */
+.text-neon-green,
+.text-\[#00ff66\] {
+    color: var(--color-neon-green) !important;
+}
+
+.bg-neon-green,
+.bg-\[#00ff66\] {
+    background-color: var(--color-neon-green) !important;
+}
+
+.border-neon-green,
+.border-\[#00ff66\] {
+    border-color: var(--color-neon-green) !important;
+}
+
+.shadow-neon-green {
+    box-shadow: 0 0 30px rgba(242, 234, 121, 0.3) !important;
+}
+
+/* Map Old Cyan to Cream/Light Yellow */
+.text-neon-cyan,
+.text-\[#00f3ff\] {
+    color: var(--color-neon-blue) !important;
+}
+
+.bg-neon-cyan,
+.bg-\[#00f3ff\] {
+    background-color: var(--color-neon-blue) !important;
+}
+
+.border-neon-cyan,
+.border-\[#00f3ff\] {
+    border-color: var(--color-neon-blue) !important;
+}
+
+/* Specific Lamborghini Gradient Override */
+.btn-lambo {
+    background: linear-gradient(90deg, var(--color-neon-yellow), #F2EA79, var(--color-neon-green)) !important;
+    text-shadow: 0 0 10px rgba(215, 242, 7, 0.5) !important;
+    box-shadow: 0 0 30px rgba(215, 242, 7, 0.35) !important;
+}

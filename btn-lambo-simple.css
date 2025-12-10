@@ -1,0 +1,381 @@
+/* ==========================================================================
+   #TUNING MANIA 2050 - FUTURE SPORT BUTTON (VOLT EDITION)
+   Aerodynamic, Holographic, High-Performance - New Color & Size
+   ========================================================================== */
+
+:root {
+    /* NEW VOLT COLOR (Acid Yellow-Green) */
+    --tm-neon-volt: #D7F207;
+    --tm-neon-volt-glow: rgba(215, 242, 7, 0.4);
+    --tm-glass-bg-volt: rgba(215, 242, 7, 0.1);
+    --tm-font-display: 'Orbitron', sans-serif;
+}
+
+.btn-lambo {
+    /* Layout & Sizing (Compact) */
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px 40px !important;
+    min-width: 240px !important;
+
+    /* Typography */
+    font-family: var(--tm-font-display) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    font-size: 15px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+
+    /* Shape & Base Style */
+    transform: skewX(-20deg) !important;
+    background: var(--tm-glass-bg-volt) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(215, 242, 7, 0.3) !important;
+
+    /* Interaction & Reset */
+    cursor: pointer !important;
+    z-index: 10 !important;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    box-shadow: 0 0 15px rgba(215, 242, 7, 0.1) !important;
+    overflow: hidden !important;
+
+    /* Hardware Acceleration */
+    will-change: transform, box-shadow;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    .btn-lambo {
+        padding: 14px 30px !important;
+        min-width: 200px !important;
+        font-size: 14px !important;
+        letter-spacing: 1px !important;
+    }
+}
+
+/* TEXT LAYER (Un-skewed + Holographic) */
+.btn-lambo span,
+.btn-lambo>* {
+    display: block !important;
+    transform: skewX(20deg) !important;
+    /* Counter-skew */
+    position: relative !important;
+    z-index: 10 !important;
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(215, 242, 7, 0.8) !important;
+    pointer-events: none !important;
+}
+
+/* 1. ENERGY BORDER (Glowing Rim with Gradient) */
+.btn-lambo::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    border: 2px solid transparent !important;
+    /* Volt Gradient */
+    background: linear-gradient(90deg, var(--tm-neon-volt), #F2EA79, var(--tm-neon-volt)) border-box !important;
+
+    /* Masking for Border-Only Gradient */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0) !important;
+    mask-composite: exclude !important;
+
+    opacity: 0.8 !important;
+}
+
+/* 2. SCANNING LASER EFFECT (Background Animation) */
+.btn-lambo::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, var(--tm-neon-volt-glow), transparent) !important;
+    transform: skewX(20deg) !important;
+    /* Counter-skew to keep beam vertical */
+    animation: scan-laser 3s infinite linear !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+@keyframes scan-laser {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* HOVER STATE - ACTIVATE TURBO */
+.btn-lambo:hover {
+    background: rgba(215, 242, 7, 0.2) !important;
+    box-shadow:
+        0 0 20px var(--tm-neon-volt-glow),
+        0 0 40px rgba(215, 242, 7, 0.2),
+        inset 0 0 15px rgba(215, 242, 7, 0.2) !important;
+    transform: skewX(-20deg) scale(1.05) !important;
+    border-color: var(--tm-neon-volt) !important;
+}
+
+.btn-lambo:hover span {
+    color: var(--tm-neon-volt) !important;
+    text-shadow: 0 0 15px var(--tm-neon-volt) !important;
+}
+
+/* ACTIVE STATE - ENGAGE */
+.btn-lambo:active {
+    transform: skewX(-20deg) scale(0.95) !important;
+    background: var(--tm-neon-volt-glow) !important;
+    box-shadow: 0 0 10px rgba(215, 242, 7, 0.6) !important;
+    transition-duration: 0.1s !important;
+}
+
+/* ==========================================================================
+   #NAVIGATION MENU 2050 - ENHANCED
+   Orbitron Font, Holographic Glow, Animated Underline
+   ========================================================================== */
+
+#site-navigation a {
+    font-family: var(--tm-font-display) !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    letter-spacing: 2px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    position: relative !important;
+    padding: 5px 0 !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+}
+
+#site-navigation a:hover {
+    color: var(--tm-neon-volt) !important;
+    text-shadow: 0 0 15px var(--tm-neon-volt-glow) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Glowing Underline Animation */
+#site-navigation a::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 0% !important;
+    height: 2px !important;
+    background: var(--tm-neon-volt) !important;
+    box-shadow: 0 0 10px var(--tm-neon-volt) !important;
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+}
+
+#site-navigation a:hover::after {
+    width: 100% !important;
+}
+
+/* Active State (if class exists) */
+#site-navigation a.current-menu-item,
+#site-navigation a.active {
+    color: #fff !important;
+}
+
+/* ==========================================================================
+   #CAR SELECTOR WIDGET 2050 - ENHANCED
+   Glassmorphic Dropdowns, Neon Labels, Volt Button
+   ========================================================================== */
+
+/* 1. CONTAINER */
+.ctr-selector-3d {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    margin-top: 20px !important;
+}
+
+/* 2. LABELS (Neon Glow) */
+.ctr-selector-3d label {
+    font-family: var(--tm-font-display) !important;
+    font-size: 12px !important;
+    letter-spacing: 2px !important;
+    text-shadow: 0 0 10px currentColor !important;
+    /* Glow with own color */
+    margin-bottom: 8px !important;
+}
+
+/* 3. DROPDOWNS (Glassmorphic) */
+.ctr-selector-3d .relative.overflow-hidden {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.ctr-selector-3d .relative.overflow-hidden:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05) !important;
+}
+
+.ctr-selector-3d select {
+    font-family: var(--tm-font-display) !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    color: #fff !important;
+}
+
+/* 4. SUBMIT BUTTON (Volt Solid Style) */
+.ctr-selector-3d button {
+    /* Solid Volt Background */
+    background: var(--tm-neon-volt) !important;
+    border: none !important;
+    color: #000 !important;
+    /* Black Text */
+    font-family: var(--tm-font-display) !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    border-radius: 4px !important;
+    transform: skewX(-20deg) !important;
+    box-shadow: 0 0 20px var(--tm-neon-volt-glow) !important;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    opacity: 1 !important;
+}
+
+.ctr-selector-3d button span {
+    transform: skewX(20deg) !important;
+    color: #000 !important;
+    text-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.ctr-selector-3d button:hover {
+    background: #fff !important;
+    /* White Flash */
+    box-shadow: 0 0 40px var(--tm-neon-volt) !important;
+    transform: skewX(-20deg) scale(1.05) !important;
+}
+
+.ctr-selector-3d button:hover span {
+    color: #000 !important;
+}
+
+/* Icon Animation */
+.ctr-selector-3d button svg {
+    transition: transform 0.3s ease !important;
+}
+
+.ctr-selector-3d button:hover svg {
+    transform: scale(1.2) rotate(10deg) !important;
+    filter: drop-shadow(0 0 5px var(--tm-neon-volt));
+}
+
+/* ==========================================================================
+   #SEARCH BAR 2050 - BRAND CATALOG
+   Glassmorphic Input, Neon Focus
+   ========================================================================== */
+
+.ctr-search-wrapper {
+    max-width: 600px !important;
+    margin: 0 auto 40px auto !important;
+}
+
+.ctr-search-input {
+    width: 100% !important;
+    padding: 16px 20px 16px 50px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    font-family: var(--tm-font-display) !important;
+    font-size: 16px !important;
+    letter-spacing: 1px !important;
+    outline: none !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.ctr-search-input:focus {
+    background: rgba(215, 242, 7, 0.05) !important;
+    border-color: var(--tm-neon-volt) !important;
+    box-shadow: 0 0 20px rgba(215, 242, 7, 0.2) !important;
+}
+
+.ctr-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-family: sans-serif !important;
+    /* Fallback for readability */
+    letter-spacing: normal !important;
+}
+
+.ctr-search-icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 20px !important;
+    transform: translateY(-50%) !important;
+    color: var(--tm-neon-volt) !important;
+    pointer-events: none !important;
+    opacity: 0.7 !important;
+    transition: all 0.3s ease !important;
+}
+
+.ctr-search-input:focus+.ctr-search-icon {
+    opacity: 1 !important;
+    filter: drop-shadow(0 0 5px var(--tm-neon-volt));
+}
+
+/* ==========================================================================
+   #A-Z FILTER 2050
+   Glassmorphic Buttons, Neon Active State
+   ========================================================================== */
+
+.ctr-az-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-family: var(--tm-font-display) !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    min-width: 30px !important;
+    text-transform: uppercase !important;
+}
+
+.ctr-az-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+
+.ctr-az-btn.active {
+    background: var(--tm-neon-volt) !important;
+    color: #000 !important;
+    border-color: var(--tm-neon-volt) !important;
+    box-shadow: 0 0 10px var(--tm-neon-volt-glow) !important;
+    font-weight: bold !important;
+    transform: scale(1.1) !important;
+}

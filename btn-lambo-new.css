@@ -1,0 +1,161 @@
+/* ==========================================================================
+   #TUNING MANIA 2050 - FUTURE SPORT BUTTON (VOLT EDITION)
+   Aerodynamic, Holographic, High-Performance - Neon Glassmorphic
+   ========================================================================== */
+
+:root {
+    /* VOLT COLOR (Acid Yellow-Green) */
+    --tm-neon-volt: #D7F207;
+    --tm-neon-volt-glow: rgba(215, 242, 7, 0.4);
+    --tm-glass-bg-volt: rgba(215, 242, 7, 0.1);
+    --tm-font-display: 'Orbitron', sans-serif;
+}
+
+/* MAIN BUTTON STYLE */
+.btn-lambo {
+    /* Layout & Sizing (Compact) */
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 16px 40px !important;
+    min-width: 240px !important;
+
+    /* Typography */
+    font-family: var(--tm-font-display) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    font-size: 15px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    line-height: 1 !important;
+
+    /* Shape & Base Style */
+    transform: skewX(-20deg) !important;
+    background: var(--tm-glass-bg-volt) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(215, 242, 7, 0.3) !important;
+
+    /* Interaction & Reset */
+    cursor: pointer !important;
+    z-index: 10 !important;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    box-shadow: 0 0 15px rgba(215, 242, 7, 0.1) !important;
+    overflow: hidden !important;
+
+    /* Hardware Acceleration */
+    will-change: transform, box-shadow;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    .btn-lambo {
+        padding: 14px 30px !important;
+        min-width: 200px !important;
+        font-size: 14px !important;
+        letter-spacing: 1px !important;
+    }
+}
+
+/* TEXT LAYER (Un-skewed + Holographic) */
+.btn-lambo span,
+.btn-lambo>* {
+    display: block !important;
+    transform: skewX(20deg) !important;
+    /* Counter-skew */
+    position: relative !important;
+    z-index: 10 !important;
+    color: #fff !important;
+    text-shadow: 0 0 10px rgba(215, 242, 7, 0.8) !important;
+    pointer-events: none !important;
+}
+
+/* 1. ENERGY BORDER (Glowing Rim with Gradient) */
+.btn-lambo::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    border: 2px solid transparent !important;
+    /* Volt Gradient */
+    background: linear-gradient(90deg, var(--tm-neon-volt), #F2EA79, var(--tm-neon-volt)) border-box !important;
+
+    /* Masking for Border-Only Gradient */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0) !important;
+    -webkit-mask-composite: xor !important;
+    mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0) !important;
+    mask-composite: exclude !important;
+
+    opacity: 0.8 !important;
+}
+
+/* 2. SCANNING LASER EFFECT (Background Animation) */
+.btn-lambo::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, var(--tm-neon-volt-glow), transparent) !important;
+    transform: skewX(20deg) !important;
+    /* Counter-skew to keep beam vertical */
+    animation: scan-laser 3s infinite linear !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+}
+
+@keyframes scan-laser {
+    0% {
+        left: -100%;
+    }
+
+    50% {
+        left: 200%;
+    }
+
+    100% {
+        left: 200%;
+    }
+}
+
+/* HOVER STATE - ACTIVATE TURBO */
+.btn-lambo:hover {
+    background: rgba(215, 242, 7, 0.2) !important;
+    box-shadow:
+        0 0 20px var(--tm-neon-volt-glow),
+        0 0 40px rgba(215, 242, 7, 0.2),
+        inset 0 0 15px rgba(215, 242, 7, 0.2) !important;
+    transform: skewX(-20deg) scale(1.05) !important;
+    border-color: var(--tm-neon-volt) !important;
+}
+
+.btn-lambo:hover span,
+.btn-lambo:hover>* {
+    color: var(--tm-neon-volt) !important;
+    text-shadow: 0 0 15px var(--tm-neon-volt) !important;
+}
+
+/* ACTIVE STATE - ENGAGE */
+.btn-lambo:active {
+    transform: skewX(-20deg) scale(0.95) !important;
+    background: var(--tm-neon-volt-glow) !important;
+    box-shadow: 0 0 10px rgba(215, 242, 7, 0.6) !important;
+    transition-duration: 0.1s !important;
+}
+
+/* ==========================================================================
+   HEADER SPECIFIC OVERRIDES (Smaller Size for Header Nav)
+   ========================================================================== */
+.site-header .btn-lambo {
+    padding: 12px 24px !important;
+    min-width: auto !important;
+    font-size: 13px !important;
+    letter-spacing: 1.5px !important;
+}
